@@ -14,6 +14,7 @@ let identify = document.querySelector('.identify');
 if (identify) {
 	identify.addEventListener('click', async function (data) {
 		event.preventDefault();
+
 		function indexOfMax(arr) {
 
 			let max = arr[0];
@@ -42,7 +43,6 @@ if (identify) {
 		context.drawImage(user_pic, 0, 0, 175, 175);
 
 		imageData = context.getImageData(0, 0, 175, 175);
-
 		// Replace the Dropzone with the image that is cropped
 		// After that, give that image to the prediction method
 		const response = await tf.loadLayersModel('model.json');
@@ -61,8 +61,7 @@ if (identify) {
 		prediction = response.model.predict(
 			// The second arg makes it grayscale (supposedly)
 			// This is also the only way to get a proper setup
-			tensor_image,
-			{ batchSize: 1 },
+			tensor_image, { batchSize: 1 },
 			true
 		);
 		// This is the problem spot. All 4 numbers get put together.
@@ -72,8 +71,9 @@ if (identify) {
 		let bestResults = indexOfMax(results)
 		let predictionDigit = bestResults[0]
 		let runnerUp = bestResults[1]
+
 		console.log('Results: ', results)
-		console.log('Prediction Digit: ', predictionDigit, 'Runner Up: ', runnerUp)
+		console.log('Prediction Digit: ', predictionDigit)
 
 		let answers = {
 			0: 'dissosteira carolina',
@@ -83,15 +83,34 @@ if (identify) {
 			4: 'romalea microptera'
 		};
 
-		console.log(answers)
-
-		let speciesName = answers[predictionDigit]
-		console.log(speciesName)
-		document.querySelector('.header').innerHTML = `<img src="${sessionStorage.getItem('user_pic')}">`
+		sessionStorage.setItem('first', answers[predictionDigit])
+		sessionStorage.setItem('second', answers[runnerUp])
 
 		// When the model works, the 0 will be the result from the prediction
 		// Just building the skeleton now
 		// This is a weird way to do this and I am too tired to keep going
+
+		// Javascript page rendering
+
+		let guesses = document.querySelector('.guesses')
+
+		if (predictionDigit === 0) {
+
+			window.location.href = "dcarolina.html"
+		} else if (predictionDigit === 1) {
+
+			window.location.href = "mbivittatus.html"
+		} else if (predictionDigit === 2) {
+
+			window.location.href = "mdifferentialis.html"
+		} else if (predictionDigit === 3) {
+
+			window.location.href = "ppulchellus.html"
+		} else if (predictionDigit === 4) {
+
+			window.location.href = "rmicroptera.html"
+		}
+		console.log('This is the end')
 	});
 
 	// console.log('Tensor Object: ', tensor_image)
@@ -152,4 +171,10 @@ if (carousel) {
 	showSlides(slideIndex);
 
 	window.setInterval(plusSlides, 5000);
+}
+
+let user_image = document.querySelector('.user-pic-container')
+if (user_image) {
+	user_image.innerHTML = `<img class="user-pic" src="${sessionStorage.getItem('user_pic')}">`
+
 }
