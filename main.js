@@ -22,16 +22,15 @@ if (identify) {
 
             for (var i = 1; i < arr.length; i++) {
                 if (arr[i] > max) {
-                    maxIndex = 1;
+                    maxIndex = i;
                     max = arr[i];
                 }
             }
 
-            return maxIndex
+            return maxIndex;
         }
         let user_pic = document.querySelector('.dz-image').children[0];
-        console.log('User Image: ', user_pic);
-
+        sessionStorage.setItem('user_pic', user_pic.src)
         let imageData;
         // Creating Canvas User Image
         const image = new Image();
@@ -42,14 +41,10 @@ if (identify) {
         context.drawImage(user_pic, 0, 0, 175, 175);
 
         imageData = context.getImageData(0, 0, 175, 175);
-        console.log(imageData);
-
-        console.log(image);
         // Replace the Dropzone with the image that is cropped
         // After that, give that image to the prediction method
         const response = await tf.loadLayersModel('model.json');
         response.summary();
-        console.log('This is what got returned: ', response, 'This is your model: ', response.model);
 
         // let flat = tf.util.flatten(user_pic)
         // console.log('This is Flattened Tensor: ', flat)
@@ -60,7 +55,6 @@ if (identify) {
             .cast('float32')
             .expandDims();
 
-        console.log('This is your Tensor Object Image: ', tensor_image);
         // Prediction on the image we have
         prediction = response.model.predict(
             // The second arg makes it grayscale (supposedly)
@@ -72,13 +66,10 @@ if (identify) {
         // Our structure is [null, 200, 200, 1] in the model
         // Because there is a null, it equates to 0 where it needs to be 40000
         let results = prediction.dataSync();
-        console.log('This is your Results: ', results);
-
-        // What are these?!
-        console.log('This is your prediction below: ');
-        // Must be separated. `.print` does strange things
         let predictionDigit = indexOfMax(results)
-        prediction.print(true);
+        console.log('Results: ', results)
+        console.log('Prediction Digit: ', predictionDigit)
+
         let answers = {
             0: 'dissosteira carolina',
             1: 'melanoplus bivittatus',
@@ -133,73 +124,6 @@ function getCookie(name) {
         }
     }
     return cookieValue;
-}
-var csrftoken = getCookie('csrftoken');
-
-let image = document.querySelector('#image');
-let kingdom = document.querySelector('#kingdom');
-let phylum = document.querySelector('#phylum');
-let bug_class = document.querySelector('#class');
-let order = document.querySelector('#order');
-let family = document.querySelector('#family');
-let genus = document.querySelector('#genus');
-let species = document.querySelector('#species');
-let size = document.querySelector('#size');
-let colors = document.querySelector('#colors');
-let button = document.querySelector('#grabber');
-let com_names = document.querySelector('#com_names');
-let desc = document.querySelector('#desc');
-
-if (button) {
-    button.addEventListener('click', function() {
-        fetch('/api/species/3/', {
-                method: 'GET',
-                credentials: 'same-origin',
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken'),
-                    Accept: 'application/json',
-                    'Content-Type': 'applicaton/json'
-                }
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                // avatar.innerHTML = `< img src = "${data.avatar}" alt = "${data.tax_name}" > `
-                family.innerHTML = `Family: ${data.family}`;
-                genus.innerHTML = `Genus: ${data.genus}`;
-                species.innerHTML = `Species: ${data.tax_name}`;
-                size.innerHTML = `Size: ${data.size}`;
-                colors.innerHTML = `Colors: ${data.colors}`;
-                desc.innerHTML = `Description: ${data.desc}`;
-            });
-        fetch('/api/com_names/8', {
-                method: 'GET',
-                credentials: 'same-origin',
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken'),
-                    Accept: 'application/json',
-                    'Content-Type': 'applicaton/json'
-                }
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data.name);
-                com_names.innerHTML = `Common Names: ${data.name}`;
-            });
-        fetch('/api/photos/26', {
-                method: 'GET',
-                credentials: 'same-origin',
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken'),
-                    Accept: 'application/json',
-                    'Content-Type': 'applicaton/json'
-                }
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data.image);
-                image.innerHTML = `< img src = "${data.image}" alt = "${data.tax_name}" > `;
-            });
-    });
 }
 
 let carousel = document.querySelector('.carousel');
