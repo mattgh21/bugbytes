@@ -16,17 +16,19 @@ if (identify) {
 		event.preventDefault();
 		function indexOfMax(arr) {
 
-			var max = arr[0];
-			var maxIndex = 0;
+			let max = arr[0];
+			let maxIndex = 0;
+			let runnerUp = 0
 
-			for (var i = 1; i < arr.length; i++) {
+			for (let i = 1; i < arr.length; i++) {
 				if (arr[i] > max) {
+					runnerUp = maxIndex
 					maxIndex = i;
 					max = arr[i];
 				}
 			}
 
-			return maxIndex;
+			return [maxIndex, runnerUp];
 		}
 		let user_pic = document.querySelector('.dz-image').children[0];
 		sessionStorage.setItem('user_pic', user_pic.src)
@@ -67,9 +69,11 @@ if (identify) {
 		// Our structure is [null, 200, 200, 1] in the model
 		// Because there is a null, it equates to 0 where it needs to be 40000
 		let results = prediction.dataSync();
-		let predictionDigit = indexOfMax(results)
+		let bestResults = indexOfMax(results)
+		let predictionDigit = bestResults[0]
+		let runnerUp = bestResults[1]
 		console.log('Results: ', results)
-		console.log('Prediction Digit: ', predictionDigit)
+		console.log('Prediction Digit: ', predictionDigit, 'Runner Up: ', runnerUp)
 
 		let answers = {
 			0: 'dissosteira carolina',
@@ -148,6 +152,4 @@ if (carousel) {
 	showSlides(slideIndex);
 
 	window.setInterval(plusSlides, 5000);
-
-	fetch('/api/');
 }
