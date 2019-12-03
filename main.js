@@ -15,7 +15,7 @@ if (identify) {
     identify.addEventListener('click', async function(data) {
         event.preventDefault();
 
-        function indexofMax(arr) {
+        function indexOfMax(arr) {
 
             var max = arr[0];
             var maxIndex = 0;
@@ -26,6 +26,8 @@ if (identify) {
                     max = arr[i];
                 }
             }
+
+            return maxIndex
         }
         let user_pic = document.querySelector('.dz-image').children[0];
         console.log('User Image: ', user_pic);
@@ -45,7 +47,7 @@ if (identify) {
         console.log(image);
         // Replace the Dropzone with the image that is cropped
         // After that, give that image to the prediction method
-        const response = await tf.loadLayersModel('model_json');
+        const response = await tf.loadLayersModel('model.json');
         response.summary();
         console.log('This is what got returned: ', response, 'This is your model: ', response.model);
 
@@ -70,12 +72,12 @@ if (identify) {
         // Our structure is [null, 200, 200, 1] in the model
         // Because there is a null, it equates to 0 where it needs to be 40000
         let results = prediction.dataSync();
-        console.log('This is your Results: ', prediction.dataSync());
+        console.log('This is your Results: ', results);
 
         // What are these?!
         console.log('This is your prediction below: ');
         // Must be separated. `.print` does strange things
-        let predictionDigit = indexofMax(results)
+        let predictionDigit = indexOfMax(results)
         prediction.print(true);
         let answers = {
             0: 'dissosteira carolina',
@@ -90,16 +92,22 @@ if (identify) {
         // This is a weird way to do this and I am too tired to keep going
 
         // Javascript page rendering
+        console.log('This is the prediction digit', predictionDigit)
 
         if (predictionDigit === 0) {
+            console.log('index 0')
             window.location.href = "dcarolina.html"
         } else if (predictionDigit === 1) {
+            console.log('index 1')
             window.location.href = "mbivittatus.html"
         } else if (predictionDigit === 2) {
+            console.log('index 2')
             window.location.href = "mdifferentialis.html"
         } else if (predictionDigit === 3) {
+            console.log('index 3')
             window.location.href = "ppulchellus"
         } else if (predictionDigit === 4) {
+            console.log('index 4')
             window.location.href = "rmicroptera.html"
         }
     });
