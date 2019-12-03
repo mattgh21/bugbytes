@@ -176,5 +176,22 @@ if (carousel) {
 let user_image = document.querySelector('.user-pic-container')
 if (user_image) {
 	user_image.innerHTML = `<img class="user-pic" src="${sessionStorage.getItem('user_pic')}">`
+	let first = sessionStorage.getItem('first')
+	let firstSplit = first.split(' ')
+	let firstLetter = first[0]
+	let firstName = firstLetter + firstSplit[1]
 
+	let second = sessionStorage.getItem('second')
+	let secondSplit = second.split(' ')
+	let secondLetter = second[0]
+	let secondName = secondLetter + secondSplit[1]
+
+	document.querySelector('.guesses').innerHTML = `
+				<div class="guess">
+                    <a href="${firstName}.html">${first}</a>
+                </div>
+                <div class="guess">
+                    <a href="${secondName}.html">${second}</a>
+                </div>
+	`
 }
