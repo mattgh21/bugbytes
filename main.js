@@ -12,11 +12,24 @@ let prediction;
 
 let identify = document.querySelector('.identify');
 if (identify) {
-	identify.addEventListener('click', async function(data) {
+	identify.addEventListener('click', async function (data) {
 		event.preventDefault();
-		let user_pic = document.querySelector('.dz-image').children[0];
-		console.log('User Image: ', user_pic);
+		function indexOfMax(arr) {
 
+			var max = arr[0];
+			var maxIndex = 0;
+
+			for (var i = 1; i < arr.length; i++) {
+				if (arr[i] > max) {
+					maxIndex = i;
+					max = arr[i];
+				}
+			}
+
+			return maxIndex;
+		}
+		let user_pic = document.querySelector('.dz-image').children[0];
+		sessionStorage.setItem('user_pic', user_pic.src)
 		let imageData;
 		// Creating Canvas User Image
 		const image = new Image();
@@ -27,25 +40,21 @@ if (identify) {
 		context.drawImage(user_pic, 0, 0, 175, 175);
 
 		imageData = context.getImageData(0, 0, 175, 175);
-		console.log(imageData);
 
-		console.log(image);
 		// Replace the Dropzone with the image that is cropped
 		// After that, give that image to the prediction method
-		const response = await tf.loadLayersModel('model_json');
+		const response = await tf.loadLayersModel('model.json');
 		response.summary();
-		console.log('This is what got returned: ', response, 'This is your model: ', response.model);
 
 		// let flat = tf.util.flatten(user_pic)
 		// console.log('This is Flattened Tensor: ', flat)
 		const tensor_image = tf.browser
 			.fromPixels(imageData)
-			.reshape([ 175, 175, 3 ])
+			.reshape([175, 175, 3])
 			.div(tf.scalar(255))
 			.cast('float32')
 			.expandDims();
 
-		console.log('This is your Tensor Object Image: ', tensor_image);
 		// Prediction on the image we have
 		prediction = response.model.predict(
 			// The second arg makes it grayscale (supposedly)
@@ -58,32 +67,27 @@ if (identify) {
 		// Our structure is [null, 200, 200, 1] in the model
 		// Because there is a null, it equates to 0 where it needs to be 40000
 		let results = prediction.dataSync();
-		console.log('This is your Results: ', prediction.dataSync());
+		let predictionDigit = indexOfMax(results)
+		console.log('Results: ', results)
+		console.log('Prediction Digit: ', predictionDigit)
 
-		// What are these?!
-		console.log('This is your prediction below: ');
-		// Must be separated. `.print` does strange things
-		prediction.print(true);
-		let answers = [
-			'dissosteira carolina',
-			'melanoplus bivittatus',
-			'melanoplus differentialis',
-			'phyllopalpus pulchellus',
-			'romalea microptera'
-		];
+		let answers = {
+			0: 'dissosteira carolina',
+			1: 'melanoplus bivittatus',
+			2: 'melanoplus differentialis',
+			3: 'phyllopalpus pulchellus',
+			4: 'romalea microptera'
+		};
+
+		console.log(answers)
+
+		let speciesName = answers[predictionDigit]
+		console.log(speciesName)
+		document.querySelector('.header').innerHTML = `<img src="${sessionStorage.getItem('user_pic')}">`
 
 		// When the model works, the 0 will be the result from the prediction
 		// Just building the skeleton now
 		// This is a weird way to do this and I am too tired to keep going
-		let info = await fetch(`bugbytes/1/view_species`, {
-			method : 'GET'
-		})
-			.then((response) => response.text())
-			.then((data) => {
-				let html = document.querySelector('html');
-				html.innerHTML = data;
-			});
-		console.log(info);
 	});
 
 	// console.log('Tensor Object: ', tensor_image)
@@ -125,14 +129,14 @@ let com_names = document.querySelector('#com_names');
 let desc = document.querySelector('#desc');
 
 if (button) {
-	button.addEventListener('click', function() {
+	button.addEventListener('click', function () {
 		fetch('/api/species/3/', {
-			method      : 'GET',
-			credentials : 'same-origin',
-			headers     : {
-				'X-CSRFToken'  : getCookie('csrftoken'),
-				Accept         : 'application/json',
-				'Content-Type' : 'applicaton/json'
+			method: 'GET',
+			credentials: 'same-origin',
+			headers: {
+				'X-CSRFToken': getCookie('csrftoken'),
+				Accept: 'application/json',
+				'Content-Type': 'applicaton/json'
 			}
 		})
 			.then((response) => response.json())
@@ -146,12 +150,12 @@ if (button) {
 				desc.innerHTML = `Description: ${data.desc}`;
 			});
 		fetch('/api/com_names/8', {
-			method      : 'GET',
-			credentials : 'same-origin',
-			headers     : {
-				'X-CSRFToken'  : getCookie('csrftoken'),
-				Accept         : 'application/json',
-				'Content-Type' : 'applicaton/json'
+			method: 'GET',
+			credentials: 'same-origin',
+			headers: {
+				'X-CSRFToken': getCookie('csrftoken'),
+				Accept: 'application/json',
+				'Content-Type': 'applicaton/json'
 			}
 		})
 			.then((response) => response.json())
@@ -160,12 +164,12 @@ if (button) {
 				com_names.innerHTML = `Common Names: ${data.name}`;
 			});
 		fetch('/api/photos/26', {
-			method      : 'GET',
-			credentials : 'same-origin',
-			headers     : {
-				'X-CSRFToken'  : getCookie('csrftoken'),
-				Accept         : 'application/json',
-				'Content-Type' : 'applicaton/json'
+			method: 'GET',
+			credentials: 'same-origin',
+			headers: {
+				'X-CSRFToken': getCookie('csrftoken'),
+				Accept: 'application/json',
+				'Content-Type': 'applicaton/json'
 			}
 		})
 			.then((response) => response.json())
