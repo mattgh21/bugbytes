@@ -85,22 +85,25 @@ if (identify) {
         // Javascript page rendering
         console.log('This is the prediction digit', predictionDigit)
 
+        let guesses = document.querySelector('.guesses')
+
         if (predictionDigit === 0) {
-            console.log('index 0')
+
             window.location.href = "dcarolina.html"
         } else if (predictionDigit === 1) {
-            console.log('index 1')
+
             window.location.href = "mbivittatus.html"
         } else if (predictionDigit === 2) {
-            console.log('index 2')
+
             window.location.href = "mdifferentialis.html"
         } else if (predictionDigit === 3) {
-            console.log('index 3')
-            window.location.href = "ppulchellus"
+
+            window.location.href = "ppulchellus.html"
         } else if (predictionDigit === 4) {
-            console.log('index 4')
+
             window.location.href = "rmicroptera.html"
         }
+        console.log('This is the end')
     });
 
     // console.log('Tensor Object: ', tensor_image)
@@ -163,4 +166,10 @@ if (carousel) {
     window.setInterval(plusSlides, 5000);
 
     fetch('/api/');
+}
+
+let user_image = document.querySelector('.user-pic-container')
+if (user_image) {
+    user_image.innerHTML = `<img class="user-pic" src="${sessionStorage.getItem('user_pic')}">`
+
 }
