@@ -14,7 +14,7 @@
 }
 
 body {
-    background: linear-gradient(rgba(130, 132, 109, 0.9), rgba(130, 132, 109, 0.9)), no-repeat center/cover url('grass.jpg');
+    background: linear-gradient(rgba(130, 132, 109, 0.9), rgba(130, 132, 109, 0.9)), center/cover url('grass.jpg');
 }
 
 .bugbytes {
