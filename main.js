@@ -76,11 +76,18 @@ if (identify) {
         console.log('Prediction Digit: ', predictionDigit)
 
         let answers = {
-            0: 'dissosteira carolina',
-            1: 'melanoplus bivittatus',
-            2: 'melanoplus differentialis',
-            3: 'phyllopalpus pulchellus',
-            4: 'romalea microptera'
+            0: 'acheta domesticus',
+            1: 'conocephalus bervipennis',
+            2: 'dissosteira carolina',
+            3: 'melanoplus bivittatus',
+            4: 'melanoplus differentialis',
+            5: 'melanoplus femerrubrum',
+            6: 'melanoplus punctulatus',
+            7: 'microcentrum rhombifolium',
+            8: 'neocurtilla hexadactyla',
+            9: 'neoxabea bipunctata',
+            10: 'phyllopalpus pulchellus',
+            11: 'romalea microptera',
         };
 
         sessionStorage.setItem('first', answers[predictionDigit])
