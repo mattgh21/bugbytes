@@ -96,19 +96,29 @@ if (identify) {
 			let guesses = document.querySelector('.guesses')
 
 			if (predictionDigit === 0) {
+				window.location.href = "adomesticus.html"
 
-				window.location.href = "dcarolina.html"
 			} else if (predictionDigit === 1) {
-
-				window.location.href = "mbivittatus.html"
+				window.location.href = "cbrevipennis.html"
 			} else if (predictionDigit === 2) {
-
-				window.location.href = "mdifferentialis.html"
+				window.location.href = "dcarolina.html"
 			} else if (predictionDigit === 3) {
-
-				window.location.href = "ppulchellus.html"
+				window.location.href = "mbivittatus.html"
 			} else if (predictionDigit === 4) {
-
+				window.location.href = "mdifferentialis.html"
+			} else if (predictionDigit === 5) {
+				window.location.href = "mfemurrubrum.html"
+			} else if (predictionDigit === 6) {
+				window.location.href = "mpunctulatus.html"
+			} else if (predictionDigit === 7) {
+				window.location.href = "mrhombifolium.html"
+			} else if (predictionDigit === 8) {
+				window.location.href = "nhexadactyla"
+			} else if (predictionDigit === 9) {
+				window.location.href = "nbipunctata.html"
+			} else if (predictionDigit === 10) {
+				window.location.href = "ppulchellus.html"
+			} else if (predictionDigit === 11) {
 				window.location.href = "rmicroptera.html"
 			}
 		}
@@ -118,6 +128,7 @@ if (identify) {
 	// // const prediction = model.predict(tensor_image)
 	// console.log('This is your prediction: ', prediction)
 	// // sessionStorage.setItem('prediction', prediction)
+
 }
 
 // Bug info rendering
