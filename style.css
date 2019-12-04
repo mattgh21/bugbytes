@@ -256,6 +256,7 @@ button.identify:hover {
     border: 3px solid var(--light-green);
     border-radius: 40px;
     width: 50vw;
+    font-size: 1.5vw;
 }
 
 .slideshow-container {
@@ -271,11 +272,16 @@ button.identify:hover {
     padding-top: 1vw;
 }
 
+#desc {
+    padding-top: 2vw;
+}
+
 .body-features {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     font-size: 1.5vw;
+    padding-top: 2vw;
 }
 
 #size,
@@ -286,13 +292,14 @@ button.identify:hover {
 }
 
 .com_names {
-    padding-top: 1vw;
+    padding-top: 2vw;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 .guesses {
-    padding-top: 2vw;
+    padding-top: 3vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -392,11 +399,13 @@ img.species_pics {
     border: 3px solid var(--light-green);
     border-radius: 5px 100px;
     width: 50vw;
+    background-color: var(--light-green);
 }
 
 .blurb-p,
 .blurb-instructions-text {
     margin: 1vw;
+    font-size: 1.4vw;
 }
 
 .dz-default {
