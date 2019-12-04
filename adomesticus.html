@@ -13,49 +13,53 @@
 
 <body>
     <div class="header">
-        <h1>BugBytes</h1>
+        <h1 class="bugbytes">BugBytes</h1>
+        <div class="vine-container">
+            <img class="vine" src="vine1.svg">
+        </div>
     </div>
 
     <div class="species-main-container">
         <div class="species-hierarchy-container">
             <div class="species-hierarchy">
-                <div class="classification">
+                <div class="kingdom">
                     <p id="kingdom">Kingdom:</p>
                     <p>Animalia</p>
                 </div>
-                <div class="classification">
-                    <p id="Phylum">Phylum:</p>
+
+                <div class="phylum">
+                    <p id="phylum">Phylum:</p>
                     <p>Arthropoda</p>
                 </div>
-                <div class="classification">
-                    <p id="class">Class:</p>
+                <div class="class-c">
+                    <p id="class-c">Class:</p>
                     <p>Insecta</p>
                 </div>
-                <div class="classification">
+                <div class="order">
                     <p id="order">Order:</p>
                     <p>Orthoptera</p>
                 </div>
-                <div class="classification">
+                <div class="family">
                     <p id="family">Family:</p>
                     <p>Gryllidae</p>
                 </div>
-                <div class="classification">
+                <div class="genus">
                     <p id="genus">Genus:</p>
                     <p>Acheta</p>
                 </div>
-                <div class="classification">
+                <div class="species">
                     <p id="species">Species:</p>
-                    <p>A. domesticus</p>
+                    <p class="species-answer">A. domesticus</p>
                 </div>
+            </div>
+            <div class="user-image-container">
+                <div class="user-pic-container"></div>
+                <p class="info">← Your Uploaded Image</p>
             </div>
         </div>
         <div class="image-data-container">
             <div class="images-container">
-                <div class="user-image-container">
-                    <div class="user-pic-container"></div>
-                    <p class="info">Your Uploaded Image</p>
-                    <a class="info" href="index.html">Try Again?</a>
-                </div>
+
                 <div class="carousel">
                     <div class="slideshow-container">
                         <div class="fade">
@@ -74,22 +78,25 @@
             </div>
             <div class="data-container">
                 <div class="body-features">
-                    <p class="info" id="size">Size: 16mm to 21mm (0.62in to 0.82in)</p>
+                    <p class="info" id="size">Size:</p>
+                    <p>16mm to 21mm (0.62in to 0.82in)</p>
                     <p class="info" id="colors">Colors:</p>
                     <p>brown, black</p>
                 </div>
-                <p class="info" id="desc">Description:</p>
-                <p>Head light brown with three black transverse bands: one across the back of the head, another between the eyes, and a third horseshoe-shaped band between the antennae; pronotum light brown with dark brown or blackish markings on side and
-                    top; wings brown and black, usually extending beyond abdomen and tapering to a long point; pale dorsolateral line runs along each wing; legs brown, hind tibiae with two rows of several spines; ovipositor straight, thin, shorter than
-                    length of abdomen all house crickets have long hind wings when they become adult, but they sometimes shed them later juveniles resemble adults but are smaller and wingless.</p>
-                <div id="com_names">
-                    <h4>Common Names:</h4>
-                    <p>Handsome Trig</p>
+                <div class="desc-cont">
+                    <p class="info" id="desc">Description:</p>
+                    <p>Head light brown with three black transverse bands: one across the back of the head, another between the eyes, and a third horseshoe-shaped band between the antennae; pronotum light brown with dark brown or blackish markings on side
+                        and top; wings brown and black, usually extending beyond abdomen and tapering to a long point; pale dorsolateral line runs along each wing; legs brown, hind tibiae with two rows of several spines; ovipositor straight, thin, shorter
+                        than length of abdomen all house crickets have long hind wings when they become adult, but they sometimes shed them later juveniles resemble adults but are smaller and wingless.</p>
+                </div>
+                <div class="com_names">
+                    <p id="com_names">Common Names:</p>
                     <p>House Cricket</p>
                     <p>Cricket on the Hearth</p>
                 </div>
+                <div class="guesses"></div>
             </div>
-            <div class="guesses"></div>
+
         </div>
     </div>
 

@@ -191,8 +191,9 @@ if (carousel) {
     window.setInterval(plusSlides, 5000);
 }
 
-let user_image = document.querySelector('.user-pic-container')
-if (user_image) {
+let user_image = document.querySelector('.user-pic-container');
+if (user_image) { <<
+    << << < HEAD
     user_image.innerHTML = `<img class="user-pic" src="${sessionStorage.getItem('user_pic')}">`
     let first = sessionStorage.getItem('first')
     let firstSplit = first.split(' ')
@@ -207,13 +208,34 @@ if (user_image) {
     second = secondLetter.toUpperCase() + second.slice(1)
 
     document.querySelector('.guesses').innerHTML = `
-				<div class="guess">
-					<p class="guess-label">First Prediction</p>
-                    <a class="guess-text" href="${firstName}.html">${first}</a>
-                </div>
-				<div class="guess">
-					<p class="guess-label">Second Prediction</p>
-                    <a class="guess-text" href="${secondName}.html">${second}</a>
-                </div>
-	`
+=======
+	user_image.innerHTML = ` < img class = "user-pic"
+    src = "${sessionStorage.getItem('user_pic')}" > `;
+	let first = sessionStorage.getItem('first');
+	let firstSplit = first.split(' ');
+	let firstLetter = first[0];
+	let firstName = firstLetter + firstSplit[1];
+	first = firstLetter.toUpperCase() + first.slice(1);
+
+	let second = sessionStorage.getItem('second');
+	let secondSplit = second.split(' ');
+	let secondLetter = second[0];
+	let secondName = secondLetter + secondSplit[1];
+	second = secondLetter.toUpperCase() + second.slice(1);
+
+	document.querySelector('.guesses').innerHTML = ` >>>
+        >>> > fb493c1b4e73874fb836a891501dd1202d301ba4 <
+        div class = "guess" >
+        <
+        p class = "guess-label" > First Prediction < /p> <
+        a class = "guess-text"
+    href = "${firstName}.html" > $ { first } < /a> <
+        /div> <
+        div class = "guess" >
+        <
+        p class = "guess-label" > Second Prediction < /p> <
+        a class = "guess-text"
+    href = "${secondName}.html" > $ { second } < /a> <
+        /div>
+    `;
 }
