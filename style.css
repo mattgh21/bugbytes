@@ -49,11 +49,15 @@ body {
     flex-direction: row;
 }
 
+.identify {
+    justify-content: center;
+}
+
 button.identify {
     width: 200px;
     height: 50px;
     font-size: 35px;
-    margin-left: 10vw;
+    margin-left: 12vw;
     margin-top: 2vw;
     border-radius: 10px;
     background-color: var(--light-green);
@@ -306,11 +310,13 @@ button.identify:hover {
     display: flex;
     flex-direction: column;
     width: 50vw;
+    justify-content: center;
 }
 
 #myDropzone {
     margin-top: 4vh;
-    width: 30vw;
+    margin-right: 0;
+    width: 34vw;
     height: 50vh;
     background-color: var(--lightest-green);
     transition: .5s ease;
@@ -330,7 +336,8 @@ button.identify:hover {
     margin-top: 14vh;
 }
 
-.dropzone.dz-clickable {
+.dropzone,
+.dz-clickable {
     width: 30vw;
     height: 30vw;
     text-align: center;
@@ -340,13 +347,15 @@ button.identify:hover {
 }
 
 .upload {
-    margin-left: 5vw;
+    justify-self: center;
+    margin-left: 6vw;
     border-radius: 10px;
+    margin-right: 0;
 }
 
 .dz-image {
-    width: 300px;
-    height: 300px;
+    width: 20vw;
+    height: 30vh;
     border-radius: 10px;
 }
 
@@ -378,7 +387,7 @@ img.species_pics {
 }
 
 .blurb {
-    margin: 3vw 6vw;
+    margin: 3vw 3vw;
     padding: 4vw;
     border: 3px solid var(--light-green);
     border-radius: 5px 100px;
