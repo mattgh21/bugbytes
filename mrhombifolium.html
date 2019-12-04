@@ -13,48 +13,53 @@
 
 <body>
     <div class="header">
-        <h1>BugBytes</h1>
+        <h1 class="bugbytes">BugBytes</h1>
+        <div class="vine-container">
+            <img class="vine" src="vine1.svg">
+        </div>
     </div>
 
     <div class="species-main-container">
         <div class="species-hierarchy-container">
             <div class="species-hierarchy">
-                <div class="classification">
+                <div class="kingdom">
                     <p id="kingdom">Kingdom:</p>
                     <p>Animalia</p>
                 </div>
-                <div class="classification">
-                    <p id="Phylum">Phylum:</p>
+                
+                <div class="phylum">
+                    <p id="phylum">Phylum:</p>
                     <p>Arthropoda</p>
                 </div>
-                <div class="classification">
-                    <p id="class">Class:</p>
+                <div class="class-c">
+                    <p id="class-c">Class:</p>
                     <p>Insecta</p>
                 </div>
-                <div class="classification">
+                <div class="order">
                     <p id="order">Order:</p>
                     <p>Orthoptera</p>
                 </div>
-                <div class="classification">
+                <div class="family">
                     <p id="family">Family:</p>
                     <p>Tettigoniidae</p>
                 </div>
-                <div class="classification">
+                <div class="genus">
                     <p id="genus">Genus:</p>
                     <p>Microcentrum</p>
                 </div>
-                <div class="classification">
+                <div class="species">
                     <p id="species">Species:</p>
-                    <p>M. rhombifolium</p>
+                    <p class="species-answer">M. rhombifolium</p>
                 </div>
+            </div>
+            <div class="user-image-container">
+                <div class="user-pic-container"></div>
+                <p class="info">←	Your Uploaded Image</p>
             </div>
         </div>
         <div class="image-data-container">
             <div class="images-container">
-                <div class="user-image-container">
-                    <div class="user-pic-container"></div>
-                    <p class="info">Your Uploaded Image</p>
-                </div>
+                
                 <div class="carousel">
                     <div class="slideshow-container">
                         <div class="fade">
@@ -73,21 +78,24 @@
             </div>
             <div class="data-container">
                 <div class="body-features">
-                    <p class="info" id="size">Size: 45mm to 65mm (1.76in to 2.54in)</p>
+                    <p class="info" id="size">Size:</p>
+                    <p>45mm to 65mm (1.76in to 2.54in)</p>
                     <p class="info" id="colors">Colors:</p>
                     <p>green</p>
                 </div>
-                <p class="info" id="desc">Description:</p>
-                <p>Their body resembles a green leaf, even down to leaf-like veins. They remain very still when on alert, but will quickly fly away when threatened, scared or disturbed. They have vivid colors and dark spots or speckles on them. This appearance
-                    changes as they mature.</p>
-                <div id="com_names">
-                    <h4>Common Names:</h4>
+                <div class="desc-cont">
+                    <p class="info" id="desc">Description:</p>
+                    <p>Their body resembles a green leaf, even down to leaf-like veins. They remain very still when on alert, but will quickly fly away when threatened, scared or disturbed. They have vivid colors and dark spots or speckles on them. This appearance
+                        changes as they mature.</p>
+                </div>
+                <div class="com_names">
+                    <p id="com_names">Common Names:</p>
                     <p>Greater Wing Katydid</p>
                     <p>Broad-winged Katydid</p>
-                    <p></p>
                 </div>
+                <div class="guesses"></div>
             </div>
-            <div class="guesses"></div>
+            
         </div>
     </div>
 
