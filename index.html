@@ -60,6 +60,8 @@
     </div>
 </body>
 <script>
+    document.querySelector('.dropzone').innerHTML = `<p class="help-text">Drop files to upload<br>OR<br>Click to browse local files</p>`
+
     Dropzone.options.myDropzone = {
         url: '/#',
         transformFile: function(file, done) {

@@ -54,7 +54,7 @@ button.identify {
 	width: 200px;
 	height: 50px;
 	font-size: 35px;
-	margin-left: 13vw;
+	margin-left: 10vw;
 	margin-top: 2vw;
 	border-radius: 10px;
 	background-color: var(--light-green);
@@ -300,6 +300,7 @@ button.identify:hover {
 .dropzone-identify-container {
 	display: flex;
 	flex-direction: column;
+	width: 50vw;
 }
 
 #myDropzone {
@@ -318,6 +319,10 @@ button.identify:hover {
 	margin-top: 3vh;
 	width: 20vw;
 	border-radius: 20px;
+}
+
+.help-text {
+	margin-top: 14vh;
 }
 
 .dropzone.dz-clickable {
@@ -368,15 +373,20 @@ img.species_pics {
 }
 
 .blurb {
-	margin: 7vw 10vw;
-	padding: 2vw;
+	margin: 3vw 6vw;
+	padding: 4vw;
 	border: 3px solid var(--light-green);
 	border-radius: 5px 100px;
+	width: 50vw;
 }
 
 .blurb-p,
 .blurb-instructions-text {
 	margin: 1vw;
+}
+
+.dz-default {
+	display: none;
 }
 
 /* ======================= INFO FROM CHARLIE ======================= */
