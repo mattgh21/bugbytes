@@ -160,7 +160,7 @@ img {
 }
 
 .carousel {
-	width: 80%;
+	width: 50%;
 }
 
 .body-features {
@@ -226,4 +226,62 @@ img.species_pics {
 	margin-top: 8vw;
 	border: 1px solid;
 	padding: 2vw;
+}
+
+/* ======================= INFO FROM CHARLIE ======================= */
+
+.species-main-container {
+	margin: 4vh 3vw;
+}
+
+.image-data-container {
+	width: 80vw;
+}
+
+.user-image-container {
+	justify-content: center;
+}
+
+.user-pic-container {
+	justify-items: center;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.user-pic {
+	padding: 1rem;
+	border: 1px solid black;
+}
+
+.classification {
+	min-width: 10vw;
+}
+
+.description-text {
+	margin: 1rem 4rem;
+	line-height: 1.25rem;
+}
+
+.body-features {
+	width: 100%;
+	justify-content: space-around;
+}
+
+.common-name-container {
+	display: flex;
+	justify-content: space-between;
+	flex-grow: 1;
+	margin: 1rem .25rem;
+}
+
+.guess-container {
+	display: flex;
+	justify-content: space-around;
+	margin: 1.75rem 1rem;
+}
+
+.guess {
+	padding: .5rem .85rem;
+	margin: .25rem .85rem;
 }
