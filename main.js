@@ -12,7 +12,9 @@ let prediction;
 
 let identify = document.querySelector('.identify');
 if (identify) {
+
     identify.addEventListener('click', async function(data) {
+
         event.preventDefault();
 
         function indexOfMax(arr) {
@@ -31,7 +33,9 @@ if (identify) {
 
             return [maxIndex, runnerUp];
         }
-        let user_pic = document.querySelector('.dz-image').children[0];
+
+        let user_pic = document.querySelector('.uploaded-user-image')
+
         sessionStorage.setItem('user_pic', user_pic.src)
         let imageData;
         // Creating Canvas User Image
@@ -77,6 +81,7 @@ if (identify) {
 
         let answers = {
             0: 'acheta domesticus',
+
             1: 'conocephalus brevipennis',
             2: 'dissosteira carolina',
             3: 'melanoplus bivittatus',
