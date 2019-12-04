@@ -1,7 +1,7 @@
 insectImg = document.getElementById('insectPic');
 if (insectImg) {
-	imgData = getBase64Image(insectImg);
-	localStorage.setItem('imgData', imgData);
+    imgData = getBase64Image(insectImg);
+    localStorage.setItem('imgData', imgData);
 }
 
 let dataImage = localStorage.getItem('imgData');
@@ -13,7 +13,8 @@ let prediction;
 let identify = document.querySelector('.identify');
 if (identify) {
 
-    identify.addEventListener('click', async function (data) {
+    identify.addEventListener('click', async function(data) {
+
         event.preventDefault();
 
         function indexOfMax(arr) {
@@ -32,7 +33,9 @@ if (identify) {
 
             return [maxIndex, runnerUp];
         }
+
         let user_pic = document.querySelector('.uploaded-user-image')
+
         sessionStorage.setItem('user_pic', user_pic.src)
         let imageData;
         // Creating Canvas User Image
@@ -78,7 +81,8 @@ if (identify) {
 
         let answers = {
             0: 'acheta domesticus',
-            1: 'conocephalus bervipennis',
+
+            1: 'conocephalus brevipennis',
             2: 'dissosteira carolina',
             3: 'melanoplus bivittatus',
             4: 'melanoplus differentialis',
@@ -89,6 +93,7 @@ if (identify) {
             9: 'neoxabea bipunctata',
             10: 'phyllopalpus pulchellus',
             11: 'romalea microptera',
+
         };
 
         sessionStorage.setItem('first', answers[predictionDigit])
@@ -120,7 +125,7 @@ if (identify) {
         } else if (predictionDigit === 7) {
             window.location.href = "mrhombifolium.html"
         } else if (predictionDigit === 8) {
-            window.location.href = "nhexadactyla"
+            window.location.href = "nhexadactyla.html"
         } else if (predictionDigit === 9) {
             window.location.href = "nbipunctata.html"
         } else if (predictionDigit === 10) {
@@ -139,74 +144,74 @@ if (identify) {
 
 // Bug info rendering
 function getCookie(name) {
-	var cookieValue = null;
-	if (document.cookie && document.cookie !== '') {
-		var cookies = document.cookie.split(';');
-		for (var i = 0; i < cookies.length; i++) {
-			var cookie = cookies[i].trim();
-			// Does this cookie string begin with the name we want?
-			if (cookie.substring(0, name.length + 1) === name + ' = ') {
-				cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-				break;
-			}
-		}
-	}
-	return cookieValue;
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === name + ' = ') {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
 
 let carousel = document.querySelector('.carousel');
 if (carousel) {
-	let slideIndex = 1;
+    let slideIndex = 1;
 
-	// Setting a default so that it will move by itself
-	function plusSlides(n = 1) {
-		showSlides((slideIndex += n));
-	}
+    // Setting a default so that it will move by itself
+    function plusSlides(n = 1) {
+        showSlides((slideIndex += n));
+    }
 
-	function currentSlide(n) {
-		showSlides((slideIndex = n));
-	}
+    function currentSlide(n) {
+        showSlides((slideIndex = n));
+    }
 
-	function showSlides(n) {
-		let i;
-		let slides = document.getElementsByClassName('slide');
-		let dots = document.getElementsByClassName('dot');
-		if (n > slides.length) {
-			slideIndex = 1;
-		}
-		if (n < 1) {
-			slideIndex = slides.length;
-		}
-		for (i = 0; i < slides.length; i++) {
-			slides[i].style.display = 'none';
-		}
-		for (i = 0; i < dots.length; i++) {
-			dots[i].className = dots[i].className.replace(' active', '');
-		}
-		slides[slideIndex - 1].style.display = 'block';
-		dots[slideIndex - 1].className += ' active';
-	}
-	showSlides(slideIndex);
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName('slide');
+        let dots = document.getElementsByClassName('dot');
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = 'none';
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(' active', '');
+        }
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].className += ' active';
+    }
+    showSlides(slideIndex);
 
-	window.setInterval(plusSlides, 5000);
+    window.setInterval(plusSlides, 5000);
 }
 
 let user_image = document.querySelector('.user-pic-container');
 if (user_image) {
-	user_image.innerHTML = `<img class="user-pic" src="${sessionStorage.getItem('user_pic')}">`;
-	let first = sessionStorage.getItem('first');
-	let firstSplit = first.split(' ');
-	let firstLetter = first[0];
-	let firstName = firstLetter + firstSplit[1];
-	first = firstLetter.toUpperCase() + first.slice(1);
+    user_image.innerHTML = `<img class="user-pic" src="${sessionStorage.getItem('user_pic')}">`;
+    let first = sessionStorage.getItem('first');
+    let firstSplit = first.split(' ');
+    let firstLetter = first[0];
+    let firstName = firstLetter + firstSplit[1];
+    first = firstLetter.toUpperCase() + first.slice(1);
 
-	let second = sessionStorage.getItem('second');
-	let secondSplit = second.split(' ');
-	let secondLetter = second[0];
-	let secondName = secondLetter + secondSplit[1];
-	second = secondLetter.toUpperCase() + second.slice(1);
+    let second = sessionStorage.getItem('second');
+    let secondSplit = second.split(' ');
+    let secondLetter = second[0];
+    let secondName = secondLetter + secondSplit[1];
+    second = secondLetter.toUpperCase() + second.slice(1);
 
-	document.querySelector('.guesses').innerHTML = `
+    document.querySelector('.guesses').innerHTML = `
 				<div class="guess">
 					<p class="guess-label">First Prediction</p>
                     <a class="guess-text" href="${firstName}.html">${first}</a>
