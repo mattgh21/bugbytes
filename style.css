@@ -12,6 +12,49 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: var(--light-grey);
+}
+
+.bugbytes {
+	margin-top: 3vw;
+	width: 40vw;
+	font-size: 7vw;
+	text-align: center;
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
+	height: 15vw;
+	background: var(--green);
+	color: white;
+}
+
+.vine-container {
+	width: 60vw;
+	height: 100%;
+	position: relative;
+}
+
+.vine {
+	position: absolute;
+	top: -4.5vw;
+	width: 80%;
+}
+
+.container {
+	display: flex;
+}
+
+button.identify {
+	width: 200px;
+	height: 50px;
+	font-size: 35px;
+	margin-left: 13vw;
+	margin-top: 5vw;
+}
+
 /* ----------------- SPECIES PAGE START ----------------- */
 
 /* ---------------- CAROUSEL START ---------------- */
@@ -54,6 +97,8 @@ img {
 	border-radius: 50%;
 	display: inline-block;
 	transition: background-color 0.6s ease;
+	text-align: center;
+	align-items: center;
 }
 
 .active,
@@ -132,48 +177,12 @@ img {
 
 /* ----------------- SPECIES PAGE END ----------------- */
 
-body {
-	background-color: var(--light-grey);
-}
-
-h1 {
-	margin-left: 4.5vw;
-}
-
 .dropzone.dz-clickable {
 	width: 30vw;
 	height: 30vw;
 	text-align: center;
 	align-items: center;
 	margin-top: 8vw;
-}
-
-span {
-	text-align: center;
-	align-items: center;
-}
-
-/* #myDropzone {
-    min-width: 50vw;
-} */
-
-.container {
-	display: flex;
-}
-
-.header {
-	padding: 1.5vw;
-	background: #95a472;
-	color: white;
-	font-size: 2vw;
-}
-
-button.identify {
-	width: 200px;
-	height: 50px;
-	font-size: 35px;
-	margin-left: 13vw;
-	margin-top: 5vw;
 }
 
 .upload {
