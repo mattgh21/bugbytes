@@ -45,12 +45,47 @@ body {
 	width: 80%;
 }
 
+.main-index-container {
+	display: flex;
+	flex-direction: row;
+}
+
 button.identify {
 	width: 200px;
 	height: 50px;
 	font-size: 35px;
 	margin-left: 13vw;
-	margin-top: 5vw;
+	margin-top: 2vw;
+	border-radius: 10px;
+	background-color: var(--light-green);
+	border: 3px solid var(--light-green);
+	cursor: pointer;
+	transition: .5s ease;
+}
+
+.confirm {
+	background-color: var(--light-green);
+	border: 3px solid var(--light-green);
+	transition: .5s ease;
+	border-radius: 10px;
+	width: 200px;
+	height: 50px;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.confirm:hover {
+	background-color: var(--green);
+	border: 3px solid black;
+}
+
+button.identify:hover {
+	background-color: var(--green);
+	border: 3px solid black;
+}
+
+.identify:focus {
+	outline: none;
 }
 
 /* ----------------- SPECIES PAGE START ----------------- */
@@ -262,21 +297,47 @@ button.identify {
 
 /* ----------------- SPECIES PAGE END ----------------- */
 
+.dropzone-identify-container {
+	display: flex;
+	flex-direction: column;
+}
+
+#myDropzone {
+	margin-top: 4vh;
+	width: 30vw;
+	height: 50vh;
+	background-color: var(--lightest-green);
+	transition: .5s ease;
+}
+
+#myDropzone:hover {
+	background-color: var(--light-green);
+}
+
+.uploaded-user-image {
+	margin-top: 3vh;
+	width: 20vw;
+	border-radius: 20px;
+}
+
 .dropzone.dz-clickable {
 	width: 30vw;
 	height: 30vw;
 	text-align: center;
 	align-items: center;
-	margin-top: 8vw;
+	margin-top: 2vw;
+	border-radius: 10px;
 }
 
 .upload {
-	margin-left: 5.5vw;
+	margin-left: 5vw;
+	border-radius: 10px;
 }
 
 .dz-image {
 	width: 300px;
 	height: 300px;
+	border-radius: 10px;
 }
 
 .dropzone .dz-preview .dz-image {
@@ -307,10 +368,15 @@ img.species_pics {
 }
 
 .blurb {
-	margin-left: 20vw;
-	margin-top: 8vw;
-	border: 1px solid;
+	margin: 7vw 10vw;
 	padding: 2vw;
+	border: 3px solid var(--light-green);
+	border-radius: 5px 100px;
+}
+
+.blurb-p,
+.blurb-instructions-text {
+	margin: 1vw;
 }
 
 /* ======================= INFO FROM CHARLIE ======================= */
