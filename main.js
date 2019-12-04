@@ -77,7 +77,7 @@ if (identify) {
 
         let answers = {
             0: 'acheta domesticus',
-            1: 'conocephalus bervipennis',
+            1: 'conocephalus brevipennis',
             2: 'dissosteira carolina',
             3: 'melanoplus bivittatus',
             4: 'melanoplus differentialis',
@@ -120,7 +120,7 @@ if (identify) {
         } else if (predictionDigit === 7) {
             window.location.href = "mrhombifolium.html"
         } else if (predictionDigit === 8) {
-            window.location.href = "nhexadactyla"
+            window.location.href = "nhexadactyla.html"
         } else if (predictionDigit === 9) {
             window.location.href = "nbipunctata.html"
         } else if (predictionDigit === 10) {
