@@ -221,9 +221,6 @@ img.species_pics {
 
 /* ======================= INFO FROM CHARLIE ======================= */
 
-.body {
-}
-
 .species-main-container {
 	margin: 4vh 3vw;
 }
@@ -232,14 +229,20 @@ img.species_pics {
 	width: 80vw;
 }
 
+.user-image-container {
+	justify-content: center;
+}
+
 .user-pic-container {
 	justify-items: center;
-	margin: .35rem;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .user-pic {
-	margin: auto;
 	padding: 1rem;
+	border: 1px solid black;
 }
 
 .classification {
