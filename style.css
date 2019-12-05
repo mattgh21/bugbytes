@@ -17,6 +17,15 @@ body {
     background: linear-gradient(rgba(130, 132, 109, 0.9), rgba(130, 132, 109, 0.9)), center/cover url('grass.jpg');
 }
 
+.home {
+    text-decoration: none;
+    color: white;
+}
+
+.home:hover {
+    color: var(--lightest-green);
+}
+
 .bugbytes {
     margin-top: 3vw;
     width: 40vw;
